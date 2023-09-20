@@ -5,6 +5,10 @@
 Practice Lab 1: Twitter Data Modeling
 Rene Garcia
 •
+
+![xtwitter](https://github.com/javasquezgo/xtwitter/assets/45018994/afbd8b25-bdce-4a45-a122-d37a1e143dcb)
+
+
 Based on the Twitter database model created in lecture 3.1 add support for the following features:
 
     Tweet Reply
