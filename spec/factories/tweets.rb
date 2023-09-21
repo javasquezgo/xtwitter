@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :tweet do
-    body { Faker::Lorem.characters(number: 255)}
-    user { create(:user)}
-    status { "created" }
+    id_tweet { "MyString" }
+    content { "MyString" }
+    retweet { false }
+    quote { false }
+    reply { false }
   end
 end
