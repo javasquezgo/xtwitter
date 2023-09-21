@@ -5,4 +5,13 @@ class Tweet < ApplicationRecord
 
   validates :id_user, presence: true
   validates :content, length: { maximum:256}
+  validates :content_presence_for_tweet_or_quote
+
+  private
+
+  def content_presence_for_tweet_or_quote
+    if !retweet? && !quotes?
+      errors.add(:content, 'must be present for tweets and quotes') unless content.present?
+    end
+  end
 end
