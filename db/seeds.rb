@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create(user_name: "user1", full_name: "User One", password: "password123")
 User.create(user_name: "user2", full_name: "User Two", password: "password456")
 User.create(user_name: "johndoe", full_name: "John Doe", password: "password123")
+User.create(user_name: "user1", full_name: "User One", password: "password123")
 User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letmein")
 User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "securepassword")
 User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123456")
@@ -105,3 +105,150 @@ Follower.create(user_id: 7, followers: 2, following: 3)
 Follower.create(user_id: 8, followers: 1, following: 2)
 Follower.create(user_id: 9, followers: 3, following: 1)
 Follower.create(user_id: 10, followers: 1, following: 3)
+
+Quote.create!(
+    user_id: 1,
+    tweet_id: 1,
+    content: "Estoy de acuerdo con tu post."
+  )
+  
+  Quote.create!(
+    user_id: 2,
+    tweet_id: 3,
+    content: "Estoy totalmente en contra."
+  )
+
+  Quote.create!(
+    user_id: 3,
+    tweet_id: 2,
+    content: "Creo que tu punto de vista es muy interesante."
+  )
+  
+  Quote.create!(
+    user_id: 4,
+    tweet_id: 4,
+    content: "Nunca lo había visto desde esa perspectiva."
+  )
+  
+  Quote.create!(
+    user_id: 1,
+    tweet_id: 5,
+    content: "Totalmente de acuerdo contigo."
+  )
+  
+  Quote.create!(
+    user_id: 2,
+    tweet_id: 6,
+    content: "Tu opinión me hace reflexionar."
+  )
+
+  Quote.create!(
+    user_id: 5,
+    tweet_id: 8,
+    content: "Estoy de acuerdo contigo, es un tema muy importante."
+  )
+  
+  Quote.create!(
+    user_id: 3,
+    tweet_id: 10,
+    content: "Tu perspectiva me ha ayudado a entender mejor el tema."
+  )
+  
+  Quote.create!(
+    user_id: 2,
+    tweet_id: 12,
+    content: "No puedo evitar pensar en esto constantemente."
+  )
+  
+  Quote.create!(
+    user_id: 4,
+    tweet_id: 14,
+    content: "Tus palabras me inspiran a seguir adelante."
+  )
+  
+  Quote.create!(
+    user_id: 1,
+    tweet_id: 16,
+    content: "Eres una fuente constante de inspiración."
+  )
+  
+  Quote.create!(
+    user_id: 6,
+    tweet_id: 18,
+    content: "Gracias por compartir tus pensamientos con nosotros."
+  )
+  
+  Quote.create!(
+    user_id: 7,
+    tweet_id: 20,
+    content: "Este es un tema que merece más atención."
+  )
+  
+  Quote.create!(
+    user_id: 8,
+    tweet_id: 22,
+    content: "Completamente de acuerdo, es fundamental comprenderlo."
+  )
+  
+  Quote.create!(
+    user_id: 9,
+    tweet_id: 24,
+    content: "Tus palabras son un faro en medio de la oscuridad."
+  )
+  
+  Quote.create!(
+    user_id: 10,
+    tweet_id: 26,
+    content: "No puedo evitar pensar en esto constantemente."
+  )
+    
+  Tweet.create!(
+    content: "¡Hola, mundo!",
+    user_id: 1
+  )
+  
+  Tweet.create!(
+    content: "Hoy es un día maravilloso.",
+    user_id: 2
+  )
+  
+  Tweet.create!(
+    content: "Estoy emocionado por lo que viene.",
+    user_id: 3
+  )
+  
+  Tweet.create!(
+    content: "Disfrutando de un buen libro.",
+    user_id: 4
+  )
+  
+  Tweet.create!(
+    content: "La vida es bella.",
+    user_id: 5
+  )
+  
+  Tweet.create!(
+    content: "Aprovechando al máximo cada momento.",
+    user_id: 6
+  )
+  
+  Tweet.create!(
+    content: "Compartiendo ideas y conocimientos.",
+    user_id: 7
+  )
+  
+  Tweet.create!(
+    content: "Agradecido por todo lo que tengo.",
+    user_id: 8
+  )
+  
+  Tweet.create!(
+    content: "Siempre buscando aprender algo nuevo.",
+    user_id: 9
+  )
+  
+  Tweet.create!(
+    content: "Dando lo mejor de mí en todo lo que hago.",
+    user_id: 10
+  )
+  
