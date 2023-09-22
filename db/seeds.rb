@@ -105,6 +105,7 @@ Follower.create(user_id: 7, followers: 2, following: 3)
 Follower.create(user_id: 8, followers: 1, following: 2)
 Follower.create(user_id: 9, followers: 3, following: 1)
 Follower.create(user_id: 10, followers: 1, following: 3)
+Follower.create(user_id: 1, followers: 15, following: 2)
 
 Quote.create!(
     user_id: 1,
