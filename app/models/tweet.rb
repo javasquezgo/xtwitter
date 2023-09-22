@@ -5,4 +5,6 @@ class Tweet < ApplicationRecord
     has_many :bookmarks
     has_many :tags
     has_and_belongs_to_many :hashtags
+
+    validates :content, length: {maximum:255}
 end
