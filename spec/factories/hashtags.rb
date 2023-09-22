@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :hashtag do
-    tag { nil }
-    tag { "MyText" }
+    name { "MyString" }
   end
 end

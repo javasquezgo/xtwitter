@@ -4,4 +4,5 @@ class Tweet < ApplicationRecord
     has_many :retweets
     has_many :bookmarks
     has_many :tags
+    has_and_belongs_to_many :hashtags
 end
