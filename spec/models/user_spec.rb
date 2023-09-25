@@ -3,10 +3,10 @@ require 'rails_helper'
 # comúnmente utilizado en los tests de Rails. Contiene configuraciones y cargas necesarias
 # para que los tests funcionen correctamente.
 
+# Esta línea comienza una descripción de una prueba (test).
+# RSpec.describe especifica que estás describiendo un objeto de la clase User.
+# La opción `type: :model` indica que esta es una prueba de modelo.
 RSpec.describe User, type: :model do
-  # Esta línea comienza una descripción de una prueba (test).
-  # RSpec.describe especifica que estás describiendo un objeto de la clase User.
-  # La opción `type: :model` indica que esta es una prueba de modelo.
 
 =begin
   before(:each) do
@@ -20,18 +20,6 @@ RSpec.describe User, type: :model do
 =end
 
   user_test = FactoryBot.create(:user)
-
-=begin
-  it 'can run test and what expected it is to fail' do
-    # Esta línea inicia una especificación de prueba (it).
-    # Especifica que "puede ejecutar la prueba y lo esperado es que falle".
-
-    expect(false).to be(true)  
-    # Esta línea es la afirmación de la prueba.
-    # Aquí, estás diciendo que esperas que la expresión `false` sea igual a `true`.
-    # Como esto es obviamente falso, la prueba debería fallar cuando se ejecute.
-  end
-=end
 
   describe 'validations' do
     it 'Should not let a user be created if the password does not meet some requirements' do

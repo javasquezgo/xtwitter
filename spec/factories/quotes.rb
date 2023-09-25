@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :quote do
-    user { nil }
-    tweet { nil }
-    content { "MyText" }
+    user { 26 }
+    tweet { 1 }
+    content { "This is a quote" }
   end
 end
