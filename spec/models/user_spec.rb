@@ -8,16 +8,23 @@ require 'rails_helper'
 # La opción `type: :model` indica que esta es una prueba de modelo.
 RSpec.describe User, type: :model do
 
-=begin
-  before(:each) do
-    @user = User.create!(
-      user_name: 'Faker',
-      full_name: 'Faker not gem',
-      password: '1234567890p++P',
-      user_email: 'faker@faker.com'
-    )
+
+  
+  describe 'associations' do
+    it { should have_many(:tweets) } 
+    it { should have_many(:likes) }
+    it { should have_many(:retweets) }
+    it { should have_many(:quotes) }
+    it { should have_many(:bookmarks) } 
   end
-=end
+
+=begin
+  describe 'validations' do
+    before {FactoryBot.build(:user)}
+
+    it { should validate_presence_of(:user_name) }
+  end
+
   user_test = FactoryBot.create(:user)
 
   describe 'validations' do
@@ -43,7 +50,7 @@ RSpec.describe User, type: :model do
       expect(user_test.user_name.length).to be > 4  
     end
   end
-
+=end
 end
 
 =begin

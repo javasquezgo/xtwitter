@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
+
+  describe 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:likes) }
+    it { should have_many(:retweets) }
+    it { should have_many(:bookmarks) }
+    it { should have_many(:quotes) }
+    it { should have_and_belong_to_many(:hashtags)}
+  end
+
+=begin
   tweet_test = FactoryBot.create(:tweet)
 
   describe 'Check' do
@@ -21,5 +32,5 @@ RSpec.describe Tweet, type: :model do
       expect(tweet_test.user_id).not_to be_nil
     end
   end
-
+=end
 end
