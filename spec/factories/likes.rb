@@ -1,9 +1,6 @@
-#The data is hard coded when we have more 
-#TODO: add more data to can change the info
-
 FactoryBot.define do
   factory :like do
-    user { 26 }
-    tweet { 1 }
+    user_id { 1..39 }
+    tweet_id { rand(15..40) }
   end
 end

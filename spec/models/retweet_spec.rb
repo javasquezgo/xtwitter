@@ -2,6 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Retweet, type: :model do
 
+  describe 'associations' do
+    it { should belong_to(:user) }
+    it { should belong_to(:tweet) } 
+  end
+
+=begin
   retweet_test = FactoryBot.create(:retweet)
   
   describe 'validation' do
@@ -25,5 +31,5 @@ RSpec.describe Retweet, type: :model do
       expect(retweet_test.tweet_id).not_to be_nil
     end
   end
-
+=end
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :bookmark do
-    user { 26 }
-    tweet { 1 }
+    user_id { random(1..35) }
+    tweet_id { random(10..25)}
   end
 end

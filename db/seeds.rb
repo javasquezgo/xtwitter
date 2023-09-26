@@ -6,6 +6,20 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+Follower.create(user_id: 1, followers: 2, following: 3)
+Follower.create(user_id: 2, followers: 3, following: 1)
+Follower.create(user_id: 3, followers: 1, following: 2)
+Follower.create(user_id: 4, followers: 2, following: 1)
+Follower.create(user_id: 5, followers: 1, following: 3)
+Follower.create(user_id: 6, followers: 3, following: 2)
+Follower.create(user_id: 7, followers: 2, following: 3)
+Follower.create(user_id: 8, followers: 1, following: 2)
+Follower.create(user_id: 9, followers: 3, following: 1)
+Follower.create(user_id: 10, followers: 1, following: 3)
+Follower.create(user_id: 1, followers: 15, following: 2)
+
+=begin
 User.create(user_name: "user2", full_name: "User Two", password: "passw+-+12abB12wdwwdword456")
 User.create(user_name: "johndoe", full_name: "John Doe", password: "pass+-+12abB12wdwwdwword123")
 User.create(user_name: "user1", full_name: "User One", password: "passw+-+12abB12wdwwdword123")
@@ -95,17 +109,6 @@ Tweet.create(content: "Starting a new fitness routine.", user_id: 8)
 Tweet.create(content: "Business meeting in progress.", user_id: 9)
 Tweet.create(content: "Health is wealth!", user_id: 10)
 
-Follower.create(user_id: 1, followers: 2, following: 3)
-Follower.create(user_id: 2, followers: 3, following: 1)
-Follower.create(user_id: 3, followers: 1, following: 2)
-Follower.create(user_id: 4, followers: 2, following: 1)
-Follower.create(user_id: 5, followers: 1, following: 3)
-Follower.create(user_id: 6, followers: 3, following: 2)
-Follower.create(user_id: 7, followers: 2, following: 3)
-Follower.create(user_id: 8, followers: 1, following: 2)
-Follower.create(user_id: 9, followers: 3, following: 1)
-Follower.create(user_id: 10, followers: 1, following: 3)
-Follower.create(user_id: 1, followers: 15, following: 2)
 
 Quote.create!(
     user_id: 1,
