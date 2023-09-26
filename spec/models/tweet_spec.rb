@@ -15,18 +15,11 @@ RSpec.describe Tweet, type: :model do
     end
   end
 
-=begin  describe 'Validation' do
+  describe 'Validation' do
     it 'User_id can not be blank or nil' do
-      expect(tweet_test.user_id).to be true  
+      expect(tweet_test.user_id.to_s).not_to be_empty
+      expect(tweet_test.user_id).not_to be_nil
     end
-end
-=end  
-
-describe 'Validation' do
-  it 'User_id can not be blank or nil' do
-    expect(tweet_test.user_id.to_s).not_to be_empty
-    expect(tweet_test.user_id).not_to be_nil
   end
-end
 
 end

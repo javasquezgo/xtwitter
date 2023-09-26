@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :quote do
-    user { 26 }
-    tweet { 1 }
-    content { "This is a quote" }
+    user_id { rand(1..39) }
+    tweet_id { rand(10..40) }
+    content { Faker::Lorem.sentences.join(' ') }
+    
   end
 end

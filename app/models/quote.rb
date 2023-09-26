@@ -2,6 +2,9 @@ class Quote < ApplicationRecord
   belongs_to :user
   belongs_to :tweet
 
+  validates :content, presence: true, length: {minimum:1, maximum:255}
+  validates :user_id, :tweet_id, presence: true
+
   scope :count_quotes_by_user, ->(user_id) {
     joins(:user)
     .where(users: { id: user_id })
