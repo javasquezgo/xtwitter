@@ -1,7 +1,9 @@
 class Follower < ApplicationRecord
   belongs_to :user
 
-  validates :followers, uniqueness: { scope: [:following, :user_id], message: "You've already follow this user" }
+  #validates :followers, uniqueness: { scope: [:following, :user_id], message: "You've already follow this user" }
+  validates :followers, uniqueness: { scope: [:following, :user_id]}
+  validates :followers, uniqueness: { scope: [:followers, :user_id] }
 
 
   #Following Count: Create a new scope that retrieves the number of users a user follows

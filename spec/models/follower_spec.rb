@@ -6,4 +6,8 @@ RSpec.describe Follower, type: :model do
   end
 
   follow = FactoryBot.create(:follower)
+
+  context 'validations' do
+    it { should validate_uniqueness_of(:user_id).scoped_to(:follower) }
+  end
 end
