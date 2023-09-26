@@ -18,18 +18,29 @@ RSpec.describe User, type: :model do
     )
   end
 =end
-
   user_test = FactoryBot.create(:user)
 
   describe 'validations' do
     it 'Should not let a user be created if the password does not meet some requirements' do
-      expect(user_test).to be_valid  
-    end
+      expect(user_test).to be_valid
+        end
   end
 
   describe 'validations' do
     it 'Email must contain @' do
       expect(user_test.user_email.include?('@')).to be(true)  
+    end
+  end
+
+  describe 'validations' do
+    it 'Full name must have length greater than 4' do
+      expect(user_test.full_name.length).to be > 4  
+    end
+  end
+
+  describe 'validations' do
+    it 'User name must have length greater than 4' do
+      expect(user_test.user_name.length).to be > 4  
     end
   end
 

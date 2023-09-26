@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Retweet, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  retweet_test = FactoryBot.create(:retweet)
+  
+  describe 'validation' do
+    it 'Send data to db' do
+      expect(retweet_test.save).to be true
+    end
+  end
+
 end

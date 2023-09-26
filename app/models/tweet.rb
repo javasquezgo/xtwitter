@@ -7,7 +7,8 @@ class Tweet < ApplicationRecord
     has_and_belongs_to_many :hashtags
     has_many :quotes
 
-    validates :content, length: {maximum:255}
+    validates :content, length: {minimum:1, maximum:255}
+    validates :user_id, presence: true
 
     scope :retweets_from_user, ->(user_id) {
         select('users.user_name, tweets.content, retweets.reply_text')
