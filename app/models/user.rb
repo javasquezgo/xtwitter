@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    #Associations
     has_many :tweets
     has_many :likes
     has_many :retweets
@@ -6,6 +7,7 @@ class User < ApplicationRecord
     has_many :bookmarks
     has_many :followers
 
+    #Queries
     scope :count_followers, ->(user){
         joins(:followers).where('followers.user_id = ?', user ).count
     }
@@ -14,6 +16,7 @@ class User < ApplicationRecord
         joins(:followers).where('following.user_id = ?', user ).count
     }
 
+    #Validations
     validates :user_name, presence: true, uniqueness: true, length: {minimum:4 }
     validates :user_email, presence: true, uniqueness: true
     validates :full_name, presence: true, length: {minimum:4 }

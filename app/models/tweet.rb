@@ -1,4 +1,5 @@
 class Tweet < ApplicationRecord
+    #Associations
     belongs_to :user
     has_many :likes
     has_many :retweets
@@ -7,9 +8,11 @@ class Tweet < ApplicationRecord
     has_and_belongs_to_many :hashtags
     has_many :quotes
 
+    #Queries
     validates :content, length: {minimum:1, maximum:255}
     validates :user_id, presence: true
 
+    #Validations
     scope :user_personal_tweets, ->(user){
      select(:content).joins(:user).where('user_id = ?', user)
     }

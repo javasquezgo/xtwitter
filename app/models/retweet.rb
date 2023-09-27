@@ -1,13 +1,9 @@
 class Retweet < ApplicationRecord
+  #Associations
   belongs_to :user
   belongs_to :tweet
 
-  validates :reply_text, length: {maximum:255}
-  validates :user_id, presence: true
-  validates :tweet_id, presence: true
-
-
-  #Retweets counts: Create a new scope that retrieves the number of retweets
+  #Queries
   scope :count_of_retweet, ->(user) {
     where('user_id = ?', user).count
   }
@@ -23,4 +19,11 @@ class Retweet < ApplicationRecord
     end
   end
 
+  #Validations
+  validates :reply_text, length: {maximum:255}
+  validates :user_id, presence: true
+  validates :tweet_id, presence: true
+
+
+  
 end
