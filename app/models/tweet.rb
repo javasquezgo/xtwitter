@@ -7,6 +7,7 @@ class Tweet < ApplicationRecord
     has_many :tags
     has_and_belongs_to_many :hashtags
     has_many :quotes
+    has_many :replies
 
     #Queries
     validates :content, length: {minimum:1, maximum:255}

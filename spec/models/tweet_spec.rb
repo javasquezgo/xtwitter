@@ -11,10 +11,6 @@ RSpec.describe Tweet, type: :model do
     it { should have_and_belong_to_many(:hashtags)}
   end
 
-  describe validations do
-    
-  end
-
 =begin
   tweet_test = FactoryBot.create(:tweet)
 

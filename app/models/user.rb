@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :quotes
     has_many :bookmarks
     has_many :followers
+    has_many :replies
 
     #Queries
     scope :count_followers, ->(user){
