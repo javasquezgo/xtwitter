@@ -20,7 +20,7 @@ class Retweet < ApplicationRecord
   end
 
   #Validations
-  validates :reply_text, length: {maximum:255}
+  validates :reply_text,presence: true ,length: {maximum:255}
   validates :user_id, presence: true
   validates :tweet_id, presence: true
 

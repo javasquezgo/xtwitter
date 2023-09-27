@@ -7,6 +7,10 @@ RSpec.describe Retweet, type: :model do
     it { should belong_to(:tweet) } 
   end
 
+  context 'Validations' do
+    it { should validate_presence_of(:reply_text) }
+  end
+
 =begin
   retweet_test = FactoryBot.create(:retweet)
   

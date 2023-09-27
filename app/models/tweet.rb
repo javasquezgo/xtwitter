@@ -10,7 +10,7 @@ class Tweet < ApplicationRecord
     has_many :replies
 
     #Queries
-    validates :content, length: {minimum:1, maximum:255}
+    validates :content,presence: true ,length: {minimum:1, maximum:255}
     validates :user_id, presence: true
 
     #Validations

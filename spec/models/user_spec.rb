@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
 
   let(:user) { create(:user) }
 
-  describe 'validations' do
+  context 'validations' do
     it {should validate_presence_of(:user_email)}
     it {should validate_uniqueness_of(:user_email)}
     it {should validate_presence_of(:user_name)}

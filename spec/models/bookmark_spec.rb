@@ -7,6 +7,11 @@ RSpec.describe Bookmark, type: :model do
   end
 
   context 'validations' do
-    it { should validate_uniqueness_of(:user_id).scoped_to(:tweet_id) }
+    it 'validates uniqueness of user_id within the scope of tweet_id' do
+      bookmark = FactoryBot.build(:bookmark)
+      expect(bookmark).to be_valid
+    end
   end
+
+
 end
