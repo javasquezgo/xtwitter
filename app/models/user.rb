@@ -14,7 +14,9 @@ class User < ApplicationRecord
         joins(:followers).where('following.user_id = ?', user ).count
     }
 
-    validates :user_name, presence: true, uniqueness: true
+    validates :user_name, presence: true, uniqueness: true, length: {minimum:4 }
     validates :user_email, presence: true, uniqueness: true
-    validates :password, presence: true, length: {minimum:12}, format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@\/\*\-\+\_])[A-Za-z\d!@\/\*\-\+\_\/\^\[\!\@\#\$\%\^\&\*\(\)\,\.\?\"\:\{\}\|\<\>\]\+\$\/]{8,}\z/ }
+    validates :full_name, presence: true, length: {minimum:4 }
+    validates :password, presence: true, length: {minimum:12}, format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@\/\*\-\+\_])[A-Za-z\d!@\/\*\-\+\_\/\^\[\!\@\#\$\%\^\&\*\(\)\,\.\?\"\:\{\}\|\<\>\]\+\$\/]{12,}\z/ }
+
 end

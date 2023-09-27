@@ -2,7 +2,8 @@ class Like < ApplicationRecord
     belongs_to :user
     belongs_to :tweet
 
-    validates :user_id, uniqueness: { scope: :tweet_id, message: "You can only like a tweet once" }
+    validates :user_id, uniqueness: { scope: :tweet_id}
+    #validates :user_id, uniqueness: { scope: :tweet_id, message: "You can only like a tweet once" }
 
     #Like a tweet: Create a method that encapsulates the like logic accepting a user
 

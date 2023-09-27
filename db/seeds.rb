@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+<<<<<<< HEAD
 User.create(user_name: "user1", full_name: "User One", password: "pasaB12+-+-+-+-+-+-+sword123", user_email: "user1@example.com")
 User.create(user_name: "user2", full_name: "User Two", password: "pasaB12+-+-+-+-+-+-+sword456", user_email: "user2@example.com")
 User.create(user_name: "johndoe", full_name: "John Doe", password: "passaB12+-+-+-+-+-+-+word123", user_email: "johndoe@example.com")
@@ -24,7 +25,41 @@ User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letaB12+-+-+
 User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "secuaB12+-+-+-+-+-+-+repassword", user_email: "bobsmith@example.com", created_at: Time.now, updated_at: Time.now)
 User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123aB12+-+-+-+-+-+-+456", user_email: "alicesmith@example.com", created_at: Time.now, updated_at: Time.now)
 User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "passwaB12+-+-+-+-+-+-+ord456", user_email: "michaelbrown@example.com", created_at: Time.now, updated_at: Time.now)
+=======
 
+Follower.create(user_id: 1, followers: 2, following: 3)
+Follower.create(user_id: 2, followers: 3, following: 1)
+Follower.create(user_id: 3, followers: 1, following: 2)
+Follower.create(user_id: 4, followers: 2, following: 1)
+Follower.create(user_id: 5, followers: 1, following: 3)
+Follower.create(user_id: 6, followers: 3, following: 2)
+Follower.create(user_id: 7, followers: 2, following: 3)
+Follower.create(user_id: 8, followers: 1, following: 2)
+Follower.create(user_id: 9, followers: 3, following: 1)
+Follower.create(user_id: 10, followers: 1, following: 3)
+Follower.create(user_id: 1, followers: 15, following: 2)
+>>>>>>> eb6163cad101400c1199424386b91f6a96e1d56e
+
+=begin
+User.create(user_name: "user2", full_name: "User Two", password: "passw+-+12abB12wdwwdword456")
+User.create(user_name: "johndoe", full_name: "John Doe", password: "pass+-+12abB12wdwwdwword123")
+User.create(user_name: "user1", full_name: "User One", password: "passw+-+12abB12wdwwdword123")
+User.create(user_name: "janedoe", full_name: "Jane Doe", password: "let+-+12abB12wdwwdwmein")
+User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "secu+-+12abB12wdwwdwrepassword")
+User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123+-+12abB12wdwwdw456")
+User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "pas+-+12abB12wdwwdwsword456")
+User.create(user_name: "sarahtaylor", full_name: "Sarah Taylor", password: "sa+-+12abB12wdwwdwrah123")
+User.create(user_name: "davidlee", full_name: "David Lee", password: "davi+-+12abB12wdwwdwd456")
+User.create(user_name: "oliviaclark", full_name: "Olivia Clark", password: "oli+-+12abB12wdwwdwvia789")
+User.create(user_name: "emilywong", full_name: "Emily Wong", password: "emil+-+12abB12wdwwdwy+-+12abB12wdwwdwpass")
+User.create(user_name: "danielkim", full_name: "Daniel Kim", password: "dan+-+12abB12wdwwdwiel777")
+User.create(user_name: "johndoe", full_name: "John Doe", password: "passwo+-+12abB12wdwwdwrd123", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letme+-+12abB12wdwwdwin", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "secur+-+12abB12wdwwdwepassword", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123+-+12abB12wdwwdw456", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "pass+-+12abB12wdwwdwword456", created_at: Time.now, updated_at: Time.now)
+
+=begin
 Tweet.create(content: "Este es el primer tweet.", created_at: Time.now, updated_at: Time.now, user_id: 1)
 Tweet.create(content: "¡Hola, Twitter!", created_at: Time.now, updated_at: Time.now, user_id: 2)
 Tweet.create(content: "Esto es un retweet.", created_at: Time.now, updated_at: Time.now, user_id: 3)
@@ -95,17 +130,6 @@ Tweet.create(content: "Starting a new fitness routine.", user_id: 8)
 Tweet.create(content: "Business meeting in progress.", user_id: 9)
 Tweet.create(content: "Health is wealth!", user_id: 10)
 
-Follower.create(user_id: 1, followers: 2, following: 3)
-Follower.create(user_id: 2, followers: 3, following: 1)
-Follower.create(user_id: 3, followers: 1, following: 2)
-Follower.create(user_id: 4, followers: 2, following: 1)
-Follower.create(user_id: 5, followers: 1, following: 3)
-Follower.create(user_id: 6, followers: 3, following: 2)
-Follower.create(user_id: 7, followers: 2, following: 3)
-Follower.create(user_id: 8, followers: 1, following: 2)
-Follower.create(user_id: 9, followers: 3, following: 1)
-Follower.create(user_id: 10, followers: 1, following: 3)
-Follower.create(user_id: 1, followers: 15, following: 2)
 
 Quote.create!(
     user_id: 1,
@@ -235,4 +259,4 @@ Quote.create!(
     content: "Dando lo mejor de mí en todo lo que hago.",
     user_id: 10
   )
-  
+=end  

@@ -7,7 +7,8 @@ class Tweet < ApplicationRecord
     has_and_belongs_to_many :hashtags
     has_many :quotes
 
-    validates :content, length: {maximum:255}
+    validates :content, length: {minimum:1, maximum:255}
+    validates :user_id, presence: true
 
     scope :user_personal_tweets, ->(user){
      select(:content).joins(:user).where('user_id = ?', user)

@@ -11,7 +11,9 @@ class Quote < ApplicationRecord
       Quote.create(user_id: user.id, tweet_id: tweet.id, content: content)
       return true  # Quote tweet successful
     end
-  end
+  validates :content, presence: true, length: {minimum:1, maximum:255}
+  validates :user_id, :tweet_id, presence: true
+
 
 
 end
