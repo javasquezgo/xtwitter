@@ -11,4 +11,13 @@ RSpec.describe Like, type: :model do
   context 'validations' do
     it { should validate_uniqueness_of(:user_id).scoped_to(:tweet_id) }
   end
+
+  context 'Scopes and Methods' do
+    it 'Check the tweets that have i like from an user' do
+      user_test = User.find(rand(1..40))
+      tweet1 = Like.liked_tweets_by_user(user_test.id)
+      result = Like.liked_tweets_by_user(user_test.id)
+      expect(result).not_to include(tweet1)
+    end
+  end
 end

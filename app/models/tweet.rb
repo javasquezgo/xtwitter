@@ -15,7 +15,7 @@ class Tweet < ApplicationRecord
 
     #Validations
     scope :user_personal_tweets, ->(user){
-     select(:content).joins(:user).where('user_id = ?', user)
+     select(:content).joins(:user).where('user_id = ?', user).last
     }
 
     scope :retweet_and_tweets_from_user, ->(user){

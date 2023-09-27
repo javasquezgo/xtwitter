@@ -25,4 +25,18 @@ RSpec.describe User, type: :model do
     it {should validate_uniqueness_of(:user_name)}
     it {should validate_length_of(:password)}
   end
+
+  context 'Scopes and Methods' do
+    it 'Return count of how many followers ' do
+      user = 1
+      result = User.count_followers(user)
+      expect(result).to eq(2) 
+    end
+
+    it 'Return count of how many following ' do
+      user = 1
+      result = User.count_followers(user)
+      expect(result).to eq(2) 
+    end
+  end
 end

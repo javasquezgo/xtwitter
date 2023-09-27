@@ -8,8 +8,15 @@ RSpec.describe Bookmark, type: :model do
 
   context 'validations' do
     it 'validates uniqueness of user_id within the scope of tweet_id' do
-      bookmark = FactoryBot.build(:bookmark)
+      bookmark = FactoryBot.create(:bookmark)
       expect(bookmark).to be_valid
+    end
+  end
+
+  context 'Scopes Methods' do
+    it 'Check how many bookmarks a user has' do
+      result = Bookmark.count_of_bookmarks(1)
+      expect(result).to eq(0)  
     end
   end
 

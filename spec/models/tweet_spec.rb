@@ -16,26 +16,15 @@ RSpec.describe Tweet, type: :model do
     it { should validate_length_of(:content) }
   end
 
-=begin
-  tweet_test = FactoryBot.create(:tweet)
+  context 'Scopes and Methods' do
+    it 'Check all the tweets of a specific user' do
+      user1 = User.find(rand(1..25))
+      tweet1 = FactoryBot.create(:tweet, user_id: user1.id)
 
-  describe 'Check' do
-    it 'Checking if a tweet is uploaded' do
-      expect(tweet_test.content).not_to be(true)   
+      result = Tweet.user_personal_tweets(user1.id)
+      expect(result.content).to include(tweet1.content)
     end
+    
   end
 
-  describe 'Validation' do
-    it 'Lenght of tweet must be greater than 1' do
-      expect(tweet_test.content.length).to be > 1  
-    end
-  end
-
-  describe 'Validation' do
-    it 'User_id can not be blank or nil' do
-      expect(tweet_test.user_id.to_s).not_to be_empty
-      expect(tweet_test.user_id).not_to be_nil
-    end
-  end
-=end
 end

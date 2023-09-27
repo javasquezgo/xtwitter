@@ -8,13 +8,13 @@ class Retweet < ApplicationRecord
     where('user_id = ?', user).count
   }
 
-  def self.retweet(user, tweet)
+  def self.existed_retweet(user, tweet, reply_text)
     # Verificamos si el usuario ya retwee este tweet
     if Retweet.exists?(user_id: user, tweet_id: tweet)
       return false  # El usuario ya retwee este tweet
     else
       # Crear un nuevo retweet
-      Retweet.create(user_id: user, tweet_id: tweet)
+      Retweet.create(user_id: user, tweet_id: tweet, reply_text: reply_text)
       return true  # Retweet exitoso
     end
   end

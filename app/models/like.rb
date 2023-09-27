@@ -9,9 +9,9 @@ class Like < ApplicationRecord
 
     #Queries
     scope :liked_tweets_by_user, ->(user_id) {
-        joins(:tweets, :users)
-          .select("tweets.content")
-          .where("users.id = ?", user_id)
-          .distinct
+        select("tweets.content")
+        .joins(:user, :tweet)
+        .where("likes.user_id = ?", user_id)
+        .distinct
       }
 end

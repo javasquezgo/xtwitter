@@ -8,7 +8,7 @@ class Reply < ApplicationRecord
 
   #Queries
   scope :user_personal_tweets, ->(user){
-    select(:reply_text).joins(:user, :tweet).where('user_id = ?', user)
+    select(:reply_text).joins(:user, :tweet).where('replies.user_id = ?', user)
    }
   
 end

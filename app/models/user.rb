@@ -14,7 +14,7 @@ class User < ApplicationRecord
     }
 
     scope :count_following, ->(user){
-        joins(:followers).where('following.user_id = ?', user ).count
+        joins(:followers).select(:following).where('user_id = ?', user ).count
     }
 
     #Validations
