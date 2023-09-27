@@ -6,24 +6,24 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create(user_name: "user2", full_name: "User Two", password: "password456")
-User.create(user_name: "johndoe", full_name: "John Doe", password: "password123")
-User.create(user_name: "user1", full_name: "User One", password: "password123")
-User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letmein")
-User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "securepassword")
-User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123456")
-User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "password456")
-User.create(user_name: "sarahtaylor", full_name: "Sarah Taylor", password: "sarah123")
-User.create(user_name: "davidlee", full_name: "David Lee", password: "david456")
-User.create(user_name: "oliviaclark", full_name: "Olivia Clark", password: "olivia789")
-User.create(user_name: "emilywong", full_name: "Emily Wong", password: "emilypass")
-User.create(user_name: "danielkim", full_name: "Daniel Kim", password: "daniel777")
+User.create(user_name: "user1", full_name: "User One", password: "pasaB12+-+-+-+-+-+-+sword123", user_email: "user1@example.com")
+User.create(user_name: "user2", full_name: "User Two", password: "pasaB12+-+-+-+-+-+-+sword456", user_email: "user2@example.com")
+User.create(user_name: "johndoe", full_name: "John Doe", password: "passaB12+-+-+-+-+-+-+word123", user_email: "johndoe@example.com")
+User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letaB12+-+-+-+-+-+-+mein", user_email: "janedoe@example.com")
+User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "securaB12+-+-+-+-+-+-+epassword", user_email: "bobsmith@example.com")
+User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123aB12+-+-+-+-+-+-+456", user_email: "alicesmith@example.com")
+User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "paaB12+-+-+-+-+-+-+ssword456", user_email: "michaelbrown@example.com")
+User.create(user_name: "sarahtaylor", full_name: "Sarah Taylor", password: "saraB12+-+-+-+-+-+-+ah123", user_email: "sarahtaylor@example.com")
+User.create(user_name: "davidlee", full_name: "David Lee", password: "davidaB12+-+-+-+-+-+-+456", user_email: "davidlee@example.com")
+User.create(user_name: "oliviaclark", full_name: "Olivia Clark", password: "olivaB12+-+-+-+-+-+-+ia789", user_email: "oliviaclark@example.com")
+User.create(user_name: "emilywong", full_name: "Emily Wong", password: "emilaB12+-+-+-+-+-+-+ypass", user_email: "emilywong@example.com")
+User.create(user_name: "danielkim", full_name: "Daniel Kim", password: "danaB12+-+-+-+-+-+-+iel777", user_email: "danielkim@example.com")
 
-User.create(user_name: "johndoe", full_name: "John Doe", password: "password123", created_at: Time.now, updated_at: Time.now)
-User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letmein", created_at: Time.now, updated_at: Time.now)
-User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "securepassword", created_at: Time.now, updated_at: Time.now)
-User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123456", created_at: Time.now, updated_at: Time.now)
-User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "password456", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "johndoe", full_name: "John Doe", password: "passaB12+-+-+-+-+-+-+word123", user_email: "johndoe@example.com", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "janedoe", full_name: "Jane Doe", password: "letaB12+-+-+-+-+-+-+mein", user_email: "janedoe@example.com", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "bobsmith", full_name: "Bob Smith", password: "secuaB12+-+-+-+-+-+-+repassword", user_email: "bobsmith@example.com", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "alicesmith", full_name: "Alice Smith", password: "123aB12+-+-+-+-+-+-+456", user_email: "alicesmith@example.com", created_at: Time.now, updated_at: Time.now)
+User.create(user_name: "michaelbrown", full_name: "Michael Brown", password: "passwaB12+-+-+-+-+-+-+ord456", user_email: "michaelbrown@example.com", created_at: Time.now, updated_at: Time.now)
 
 Tweet.create(content: "Este es el primer tweet.", created_at: Time.now, updated_at: Time.now, user_id: 1)
 Tweet.create(content: "¡Hola, Twitter!", created_at: Time.now, updated_at: Time.now, user_id: 2)
@@ -185,23 +185,6 @@ Quote.create!(
     content: "Este es un tema que merece más atención."
   )
   
-  Quote.create!(
-    user_id: 8,
-    tweet_id: 22,
-    content: "Completamente de acuerdo, es fundamental comprenderlo."
-  )
-  
-  Quote.create!(
-    user_id: 9,
-    tweet_id: 24,
-    content: "Tus palabras son un faro en medio de la oscuridad."
-  )
-  
-  Quote.create!(
-    user_id: 10,
-    tweet_id: 26,
-    content: "No puedo evitar pensar en esto constantemente."
-  )
     
   Tweet.create!(
     content: "¡Hola, mundo!",

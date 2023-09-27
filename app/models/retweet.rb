@@ -5,19 +5,19 @@ class Retweet < ApplicationRecord
   validates :reply_text, length: {maximum:255}
 
   #Retweets counts: Create a new scope that retrieves the number of retweets
-  scope :count_of_retweet, ->(user_id) {
-    joins("JOIN retweets r ON users.id = r.user_id")
-      .joins("LEFT JOIN tweets t ON t.id = r.tweet_id")
-      .select("u.user_name, t.content, r.reply_text")
-      .where("users.id = ?", user_id)
+  scope :count_of_retweet, ->(user) {
+    where('user_id = ?', user).count
   }
 
-  def self.retweeted_tweets(user_id)
-    select('retweets.reply_text, tweets.content')
-      .joins('JOIN retweets ON users.id = retweets.user_id')
-      .joins('LEFT JOIN tweets ON tweets.id = retweets.tweet_id')
-      .where('users.id = ?', user_id)
+  def self.retweet(user, tweet)
+    # Verificamos si el usuario ya retwee este tweet
+    if Retweet.exists?(user_id: user.id, tweet_id: tweet.id)
+      return false  # El usuario ya retwee este tweet
+    else
+      # Crear un nuevo retweet
+      Retweet.create(user_id: user.id, tweet_id: tweet.id)
+      return true  # Retweet exitoso
+    end
   end
-
 
 end

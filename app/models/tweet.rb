@@ -9,14 +9,13 @@ class Tweet < ApplicationRecord
 
     validates :content, length: {maximum:255}
 
-    scope :retweets_from_user, ->(user_id) {
-        select('users.user_name, tweets.content, retweets.reply_text')
-          .joins('JOIN retweets ON users.id = retweets.user_id')
-          .joins('LEFT JOIN tweets ON tweets.id = retweets.tweet_id')
-          .where('users.id = ?', user_id)
-      }
+    scope :user_personal_tweets, ->(user){
+     select(:content).joins(:user).where('user_id = ?', user)
+    }
 
-    scope :with_username_and_content_for_user, ->(user_id) {
-        joins(:user).where(users: { id: user_id }).select('users.user_name, tweets.content')
-      }
+    scope :retweet_and_tweets_from_user, ->(user){
+      select(:content).joins(:user, :retweets)
+      .where('users.id = ? AND retweets.user_id', 1)
+    }
+
 end
