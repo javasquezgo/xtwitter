@@ -1,31 +1,73 @@
 require 'rails_helper'
 
 RSpec.describe 'Request test', type: :request do
-    
-=begin context 'Checking status code' do
-        it 'Return something' do
-            get 
-        end    
-    end 
-=end
 
-context 'Check the tweet validations' do
+  context 'Check the tweet validations' do
   
-tweet_params = {content: 'Tweet test', user_id: 2}
+    tweet_params = {content: 'Tweet test', user_id: 2}
 
-  it 'should return 200 status response for PUT /tweets/:id' do
-    put '/tweets/1', :params => tweet_params
-    expect(response.status).to have_http_status(200)
+    it 'should return 200 status response for PUT /tweets/:id' do
+      put '/tweets/1', :params => tweet_params
+      expect(response.status).to have_http_status(200)
+    end
+
+
   end
-=begin
-  it 'PUT should return a Tweet model that matches JSON schema' do
-    put '/tweets/1', :params => put_request_params
-    expect(response).to match_response_schema('tweet')
-  end
-=end
-end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 =begin
     
