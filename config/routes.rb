@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [] do
-    get 'tweets', to: 'users#tweets'
+    get 'tweets(/page/:page)', to: 'users#tweets'
     get 'tweets_and_replies', to: 'users#tweets_and_replies'
   end
 
