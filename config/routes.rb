@@ -4,17 +4,24 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :tweets, only: [:new, :create]
+  #resources :tweets, only: [:index, :create]
 
-  resources :tweets, only: [:edit, :update]
-
+  #resources :tweets, only: [:edit, :update]
   resources :tweet, only: [:new, :create, :update] do
     member do
-      get :action
+      post 'like', to: 'tweets#like'
+      delete 'unlike', to: 'tweets#unlike'
+      post 'retweet', to: 'tweets#retweet'
+      post 'quote', to: 'tweets#quote'
+      post 'reply', to: 'tweets#reply'
+      post 'bookmark', to: 'tweets#bookmark'
     end
   end
 
-
+  resources :users, only: [] do
+    get 'tweets', to: 'users#tweets'
+    get 'tweets_and_replies', to: 'users#tweets_and_replies'
+  end
 
   #All user routes
   #get '/users', to: "users#index"
