@@ -1,13 +1,16 @@
+Here is the video of the Request Rspects
+https://www.loom.com/share/c34ff19887174caf883fc4d3ce972482
+
 For this Lab was on create routes and test for the creates routes
 
-I've had problems to understan how to create the routes for rails, 
-the syntaxs is not the problem in what i've struggled is on 
-dedicate the time in how it should be presented and how is the 
+I've had problems to understan how to create the routes for rails,
+the syntaxs is not the problem in what i've struggled is on
+dedicate the time in how it should be presented and how is the
 correct way to be implemented at the moment for the controller be created.
 
 Then with the test of the routes was easier than i expected so i hope everything
 is fine, but my logic was on create test to check everyone of the routes created so
-was expecting the error that i wanted that that is there is missing the controller 
+was expecting the error that i wanted that that is there is missing the controller
 so it fails as we wanted to fail.
 
 For this practice lab you are going to define the routes for the features described below and define requests specs that matches those features.
