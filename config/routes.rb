@@ -3,17 +3,17 @@ Rails.application.routes.draw do
 
   #resources :users
 
-=begin resources :users, only: [] do
+  resources :users, only: [] do
     get 'tweets(/page/:page)', to: 'users#tweets'
     get 'tweets_and_replies', to: 'users#tweets_and_replies'
   end 
-=end
 
-  resources :user, only: [:index, :edit, :update, :show, :destory] do
+
+  resources :users, only: [:index, :edit, :update, :show, :destory] do
     
   end
 
-  resources :tweet, only: [:new, :create, :update] do
+  resources :tweets, only: [:new, :create, :update] do
     member do
       post 'like', to: 'tweets#like'
       delete 'unlike', to: 'tweets#unlike'

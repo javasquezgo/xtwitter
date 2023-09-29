@@ -5,7 +5,7 @@ RSpec.describe 'Tweets routing', type: :routing do
     context 'Routing test of Users' do
         
         it 'Check if it is given an user' do
-            expect(get("/user")).to route_to("users#index")  
+            expect(get("/users")).to route_to("users#index")  
         end
 
         it 'Check if the route gives the tweets from an user' do
