@@ -3,43 +3,28 @@ require 'rails_helper'
 RSpec.describe 'Request test', type: :request do
 #These are the test for the requests
 
-  context 'GET /users/:id' do
-    
-    let(:user) do
-      User.create(
-        id: 1,
-        user_name: 'john_doe',
-        full_name: 'John',
-        user_email: 'john@example.com',
-        password: 'password123',
-        created_at: Time.now,
-        updated_at: Time.now
-      )
-    end
+let(:user) do
+  User.create(
+    id: 1,
+    user_name: 'john_doe',
+    full_name: 'John',
+    user_email: 'john@example.com',
+    password: 'password123',
+    created_at: Time.now,
+    updated_at: Time.now
+  )
+end
 
-    let(:tweet) do
-      Tweet.create(
-        content: 'Tweet de prueba',
-        created_at: Time.now,
-        updated_at: Time.now,
-        user_id: 1
-      )
-    end
+let(:tweet) do
+  Tweet.create(
+    content: 'Tweet de prueba',
+    created_at: Time.now,
+    updated_at: Time.now,
+    user_id: 1
+  )
+end
 
-    it 'returns the correct user name in the JSON response' do
-        get "/users/#{user.id}"
-        expect(response).to have_http_status(200)
-        user_response = JSON.parse(response.body)
-        expect(user_response['full_name']).to eq(user.full_name)
-    end
-
-    it 'returns the tweets from an user' do
-      get "/users/#{user.id}/tweets"
-      expect(response).to have_http_status(200)
-      user_response = JSON.parse(response.body)
-      expect(user_response['full_name']).to eq(user.full_name)
-    end
-
+  context 'Post tweets status' do
     it 'returns the tweets and replies from an user' do
       get "/users/#{user.id}/tweets_and_replies"
       expect(response).to have_http_status(200)
@@ -47,7 +32,7 @@ RSpec.describe 'Request test', type: :request do
       expect(user_response['full_name']).to eq(user.full_name)
     end
 
-     it 'returns a successful response when liking a tweet' do
+    it 'returns a successful response when liking a tweet' do
        post "/tweet/#{tweet.id}/like"
        expect(response).to have_http_status(400)
        tweet_response = JSON.parse(response.body)
@@ -61,36 +46,53 @@ RSpec.describe 'Request test', type: :request do
       expect(tweet_response['content']).to eq(tweet.content)
    end
 
-   it 'Making a retweet' do
-    post "/tweet/#{tweet.id}/retweet"
-    expect(response).to have_http_status(200)
-    tweet_response = JSON.parse(response.body)
-    expect(tweet_response['content']).to eq(tweet.content)
-   end
+    it 'Making a retweet' do
+      post "/tweet/#{tweet.id}/retweet"
+      expect(response).to have_http_status(200)
+      tweet_response = JSON.parse(response.body)
+      expect(tweet_response['content']).to eq(tweet.content)
+    end
 
-   it 'Making a quote' do
-    post "/tweet/#{tweet.id}/quote"
-    expect(response).to have_http_status(200)
-    tweet_response = JSON.parse(response.body)
-    expect(tweet_response['content']).to eq(tweet.content)
-   end
+    it 'Making a quote' do
+      post "/tweet/#{tweet.id}/quote"
+      expect(response).to have_http_status(200)
+      tweet_response = JSON.parse(response.body)
+      expect(tweet_response['content']).to eq(tweet.content)
+    end
 
-   it 'Making a reply' do
-    post "/tweet/#{tweet.id}/reply"
-    expect(response).to have_http_status(200)
-    tweet_response = JSON.parse(response.body)
-    expect(tweet_response['content']).to eq(tweet.content)
-   end
+    it 'Making a reply' do
+      post "/tweet/#{tweet.id}/reply"
+      expect(response).to have_http_status(200)
+      tweet_response = JSON.parse(response.body)
+      expect(tweet_response['content']).to eq(tweet.content)
+    end
 
-   it 'Making a bookmark' do
-    post "/tweet/#{tweet.id}/bookmark"
-    expect(response).to have_http_status(200)
-    tweet_response = JSON.parse(response.body)
-    expect(tweet_response['content']).to eq(tweet.content)
-   end
-
+    it 'Making a bookmark' do
+      post "/tweet/#{tweet.id}/bookmark"
+      expect(response).to have_http_status(200)
+      tweet_response = JSON.parse(response.body)
+      expect(tweet_response['content']).to eq(tweet.content)
+    end
   end
 
+  context 'GET /users/:id' do
+
+    it 'returns the correct user name in the JSON response' do
+      get "/users/#{user.id}"
+      expect(response).to have_http_status(200)
+      user_response = JSON.parse(response.body)
+      expect(user_response['full_name']).to eq(user.full_name)
+  end
+
+  it 'returns the tweets from an user' do
+    get "/users/#{user.id}/tweets"
+    expect(response).to have_http_status(200)
+    user_response = JSON.parse(response.body)
+    expect(user_response['full_name']).to eq(user.full_name)
+  end
+
+
+  end
 
 end
 
@@ -103,58 +105,6 @@ end
     end
   end
 =end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 =begin
     
