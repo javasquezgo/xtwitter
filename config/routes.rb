@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  #resources :users
 
-  #resources :tweets, only: [:index, :create]
+=begin resources :users, only: [] do
+    get 'tweets(/page/:page)', to: 'users#tweets'
+    get 'tweets_and_replies', to: 'users#tweets_and_replies'
+  end 
+=end
 
-  #resources :tweets, only: [:edit, :update]
-
-  #These are the routes that i designed
+  resources :user, only: [:index, :edit, :update, :show, :destory] do
+    
+  end
 
   resources :tweet, only: [:new, :create, :update] do
     member do
@@ -21,13 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [] do
-    get 'tweets(/page/:page)', to: 'users#tweets'
-    get 'tweets_and_replies', to: 'users#tweets_and_replies'
-  end
-
   #Show user route  
-  get '/users/:id', to: "users#show"
+  #get '/users/:id', to: "users#show"
 
   #All user routes
   #get '/users', to: "users#index"

@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe 'Tweets routing', type: :routing do
+    
+    context 'Routing test of Users' do
+        
+        it 'Check if it is given an user' do
+            expect(get("/user")).to route_to("users#index")  
+        end
+
+        it 'Check if the route gives the tweets from an user' do
+            expect(patch("/users/2/tweets")).to route_to("users#tweets")
+        end
+
+        it 'Check if the route gives the tweets and replies from an user' do
+            expect(patch("/users/2/tweets_and_replies")).to route_to("users#tweets_and_replies")
+        end
+    end
+
     context 'Routing test' do
         
         it 'Liked tweet' do
@@ -43,15 +59,8 @@ RSpec.describe 'Tweets routing', type: :routing do
             expect(put("/tweet/1")).to route_to("tweets#update")
         end
 
-        it 'Check if the route gives the tweets from an user' do
-            expect(patch("/users/2/tweets")).to route_to("users#tweets")
-        end
+    end 
 
-        it 'Check if the route gives the tweets and replies from an user' do
-            expect(patch("/users/2/tweets_and_replies")).to route_to("users#tweets_and_replies")
-        end
-
-    end
 end
 
 =begin 
