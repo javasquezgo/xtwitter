@@ -15,12 +15,12 @@ class Tweet < ApplicationRecord
 
     #Validations
     scope :user_personal_tweets, ->(user){
-     select(:content).joins(:user).where('user_id = ?', user)
+     select(:content).joins(:user).where('tweets.user_id = ?', user)
     }
 
     scope :retweet_and_tweets_from_user, ->(user){
       select(:content).joins(:user, :retweets)
-      .where('users.id = ? AND retweets.user_id', 1)
+      .where('users.id = ? ', 1)
     }
 
 end

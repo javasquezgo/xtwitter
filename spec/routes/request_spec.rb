@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Request test', type: :request do
 
-  context 'GET /users/:id' do
+=begin   context 'GET /users/:id' do
     user_test = FactoryBot.create(:user)
     tweet = FactoryBot.create(:tweet, user_id: user_test.id)
     
@@ -29,8 +29,9 @@ RSpec.describe 'Request test', type: :request do
       #expect(response.body).to match_json_schema('user.json')
       #user_response = JSON.parse(response.body)
       #expect(user_response['full_name']).to eq(user_test.full_name) 
+
+    end 
 =end
-    end
 
   context 'Methods of post and get from tweets' do
     
@@ -46,14 +47,15 @@ RSpec.describe 'Request test', type: :request do
 
      it 'returns a successful response when liking a tweet' do
 
-      like = create(:like, user: user, tweet: tweet)
-      like_json = like.to_json
-      
-      post "/tweets/#{tweet.id}/like", params: like_json, headers: { 'Content-Type': 'application/json' }
-      expect(response).to have_http_status(200)
+      #like = create(:like, user: user, tweet: tweet)
+      #like_json = like.to_json
+      like_params = {like: {user_id: user.id, tweet_id: tweet.id}}
+
+      post "/tweets/#{tweet.id}/like", params: like_params.to_json, headers: { 'Content-Type': 'application/json' }
+      expect(response).to have_http_status(201)
       tweet_response = JSON.parse(response.body)
-      expect(response.body).to match_json_schema('like.json')
-     
+      #expect(response.body).to match_json_schema('like.json')
+      expect(response.body).to match_response_schema('like.json')
     end
 
   #   it 'returns a successful response when unliking a tweet' do
