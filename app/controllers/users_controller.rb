@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
     def index
         @users = User.all
-    end
+        render json: @users
+    end  
 
     def show
-        #@users = User.find(params[:id])
         @user = User.find(params[:id])
         render json: @user
     end
     
     def tweets
-        @users = Tweet.user_personal_tweets(params[:user_id])
+        @user = Tweet.user_personal_tweets(params[:id])
         render json: @user
     end
     

@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :users do
-     get 'tweets(/page/:page)', to: 'users#tweets'
-     get 'tweets_and_replies', to: 'users#tweets_and_replies'
+     member do
+      get 'tweets', to: 'users#tweets'
+      get 'tweets_and_replies', to: 'users#tweets_and_replies'
+     end
   end 
 
   resources :users do
