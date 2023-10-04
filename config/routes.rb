@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
 
   namespace :web do
-    resources :users do
+
+    get 'new', to: 'users#new' 
+
+    resources :users do  
       get 'tweets', to: 'users#tweets'
       get 'tweets_and_replies', to: 'users#tweets_and_replies'
    end 
