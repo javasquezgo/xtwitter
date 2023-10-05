@@ -3,6 +3,11 @@ class Retweet < ApplicationRecord
   belongs_to :user
   belongs_to :tweet
 
+  #Validations
+  validates :reply_text,presence: true ,length: {maximum:255}
+  validates :user_id, presence: true
+  validates :tweet_id, presence: true
+  
   #Queries
   scope :count_of_retweet, ->(user) {
     where('user_id = ?', user).count
@@ -18,12 +23,5 @@ class Retweet < ApplicationRecord
       return true  # Retweet exitoso
     end
   end
-
-  #Validations
-  validates :reply_text,presence: true ,length: {maximum:255}
-  validates :user_id, presence: true
-  validates :tweet_id, presence: true
-
-
   
 end

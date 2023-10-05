@@ -9,11 +9,11 @@ class Tweet < ApplicationRecord
     has_many :quotes
     has_many :replies
 
-    #Queries
+    #Validations
     validates :content,presence: true ,length: {minimum:1, maximum:255}
     validates :user_id, presence: true
 
-    #Validations
+    #Queries
     scope :user_personal_tweets, ->(user){
      select(:content).joins(:user).where('tweets.user_id = ?', user)
     }

@@ -5,7 +5,7 @@ class Api::BookmarksController < ApplicationController
         @user = User.find(params[:user_id])
         @tweet = Tweet.find(params[:tweet_id])
   
-        @bookmark = bookmark.create(@user, @tweet)
+        @bookmark = bookmark.create_bookmark(@user, @tweet)
 
         render 'api/bookmarks/create', status: :created
     end
