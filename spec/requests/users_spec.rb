@@ -6,6 +6,8 @@ RSpec.describe "Users", type: :request do
     #user = FactoryBot.create(:user)
     #tweet = FactoryBot.create(:tweet, user_id: user.id)
     #retweet = FactoryBot.create(:retweet, user_id: user.id, tweet_id: tweet.id)
+    #user_params = { user_name: 'golang', full_name: 'golang', password: '123abcIoogo+-456', user_email: 'golang@golang.com' }
+    let(:valid_params) { { user: { user_name: 'testuser', full_name: 'Test User', password: 'Password123+-', user_email: 'test@example.com' } } }
 
     it 'Check index' do
       user = FactoryBot.create(:user)
@@ -41,16 +43,25 @@ RSpec.describe "Users", type: :request do
       #expect(user_response['content']).to eq(tweet.content) 
     end
 
-    it 'Post User' do
-      user_params = { user: { user_name: 'java', full_name: 'java', password: '123abcIoogo+-456', user_email: 'java@java.com' } }
-  
-      post "/api/users", params: user_params.to_json, headers: { 'Content-Type': 'application/json' }
+    # Define los parámetros válidos para crear un usuario
+    
 
+    it 'creates a new user' do
+      # Envía una solicitud POST para crear un usuario
+      post "/api/users", params: valid_params
+
+      # Verifica que el usuario se haya creado en la base de datos
+      expect(User.count).to eq(18)
+
+      # Verifica que la respuesta tenga el código de estado correcto
       expect(response).to have_http_status(:created)
 
-      user = User.last
-      expect(user.user_name).to eq('java')
-      expect(user.user_email).to eq('java@java.com')
+      # Verifica que el usuario se haya creado correctamente
+      user = User.first
+      expect(user.user_name).to eq('testuser')
+      expect(user.full_name).to eq('Test User')
+      expect(user.user_email).to eq('test@example.com')
+      # Puedes agregar más expectativas según los atributos de tu modelo User
     end
 
   end
