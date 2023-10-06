@@ -1,5 +1,8 @@
 class Api::UsersController < ApplicationController
 
+    #skip_before_action :verify_authenticate_token!
+
+
     def index
         @users = User.all
         render json: @users
