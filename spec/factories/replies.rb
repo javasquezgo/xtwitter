@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :reply do
-    body { Faker::Lorem.characters(number: 255)}
-    user { create(:user) }
-    tweet { create(:tweet) }
+    user_id { rand(1..39) }
+    tweet_id { rand(10..40) }
+    reply_text { Faker::Lorem.sentences.join(' ') }
   end
 end

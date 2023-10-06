@@ -1,23 +1,27 @@
 class Retweet < ApplicationRecord
+  #Associations
   belongs_to :user
   belongs_to :tweet
 
-  validates :reply_text, length: {maximum:255}
-
-  #Retweets counts: Create a new scope that retrieves the number of retweets
-  scope :count_of_retweet, ->(user_id) {
-    joins("JOIN retweets r ON users.id = r.user_id")
-      .joins("LEFT JOIN tweets t ON t.id = r.tweet_id")
-      .select("u.user_name, t.content, r.reply_text")
-      .where("users.id = ?", user_id)
+  #Validations
+  validates :reply_text,presence: true ,length: {maximum:255}
+  validates :user_id, presence: true
+  validates :tweet_id, presence: true
+  
+  #Queries
+  scope :count_of_retweet, ->(user) {
+    where('user_id = ?', user).count
   }
 
-  def self.retweeted_tweets(user_id)
-    select('retweets.reply_text, tweets.content')
-      .joins('JOIN retweets ON users.id = retweets.user_id')
-      .joins('LEFT JOIN tweets ON tweets.id = retweets.tweet_id')
-      .where('users.id = ?', user_id)
+  def self.existed_retweet(user, tweet, reply_text)
+    # Verificamos si el usuario ya retwee este tweet
+    if Retweet.exists?(user_id: user, tweet_id: tweet)
+      return false  # El usuario ya retwee este tweet
+    else
+      # Crear un nuevo retweet
+      Retweet.create(user_id: user, tweet_id: tweet, reply_text: reply_text)
+      return true  # Retweet exitoso
+    end
   end
-
-
+  
 end

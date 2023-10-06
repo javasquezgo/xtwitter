@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+      "user_name": { "type": "string" },
+      "full_name": { "type": "string" },
+      "password": { "type": "string" },
+      "created_at": { "type": "string", "format": "date-time" },
+      "updated_at": { "type": "string", "format": "date-time" },
+      "user_email": { "type": "string", "format": "email" }
+    },
+    "required": ["user_name", "full_name", "password", "created_at", "updated_at", "user_email"]
+  }
+  

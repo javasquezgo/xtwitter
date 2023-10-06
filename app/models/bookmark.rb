@@ -1,12 +1,26 @@
 class Bookmark < ApplicationRecord
+  #Associations
   belongs_to :user
   belongs_to :tweet
 
-  #Bookmarked tweets: Creates a new scope that retrieves the bookmarked tweets by a user
-  scope :user_bookmarks, ->(user_id) {
-    joins(:tweets, :bookmarks)
-      .select("tweets.content")
-      .where("users.id = ?", user_id)
-      .distinct
+  #Validations
+  validates :user_id, uniqueness: { scope: :tweet_id}
+
+  #Queries
+  def self.create_bookmark(user, tweet)
+      new_bookmark = Bookmark.new(
+        user_id: user.id,
+        tweet_id: tweet.id,
+      )
+      
+      if new_bookmark.save
+        return new_bookmark.to_json
+      else
+        return "Bookmark creation failed."
+      end
+  end
+
+  scope :count_of_bookmarks, ->(user) {
+    where('user_id = ?', user).count
   }
 end

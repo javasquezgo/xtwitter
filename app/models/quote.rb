@@ -1,17 +1,22 @@
 class Quote < ApplicationRecord
+  #Associations
   belongs_to :user
   belongs_to :tweet
 
-  scope :count_quotes_by_user, ->(user_id) {
-    joins(:user)
-    .where(users: { id: user_id })
-    .count('tweets.content')
-  }
+  #Validations
+  validates :content, presence: true, length: {minimum:1, maximum:255}
+  validates :user_id, :tweet_id, presence: true
 
-  #QuoteTweet: Create a method that encapsulates the retweet logic accepting a user an a text body as parameter
-  def replies_with_period
-    retweets.joins(:tweet).where(users: { id: id }).where("retweets.reply_text LIKE ?", "%#{reply_text}%").pluck(:reply_text)
+  #Queries
+  def self.quote_tweet(user, tweet, content)
+    # Check if the user has already quoted this tweet
+    if Quote.exists?(user: user, tweet: tweet)
+      return false  # User has already quoted this tweet
+    else
+      # Create a new quote tweet
+      Quote.create(user_id: user, tweet_id: tweet, content: content)
+      return true  # Quote tweet successful
+    end
   end
-
 
 end

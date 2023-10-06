@@ -1,27 +1,27 @@
-Based on the models and migrations you created in the previous practice add the following query methods to your models:
+Generic password: 123Ioogo456+
+
+Here is the video of the Request Rspects
+https://www.loom.com/share/c34ff19887174caf883fc4d3ce972482
+
+For this lab was to create the controllers 
+to validate the routes and the test, i've tested the routes with
+Rspec and everyone works well done but when i tested
+the Request with Rspec i have had problem 
+and how to resolve.
+
+Based on your Routes defined in practice lab 2 Implement all the missing controllers.
+
+Deliverables:
+
+    REQUESTS SPECS that tests the functionality of the request and VALIDATES THE STRUCTURE OF THE JSON RESPONSE WITH JSON SCHEMA
+    A demo video that PROVES YOU WROTE YOUR SPECS before your controllers
+    Controllers: The missing controllers for all your routes. Make sure all your tests pass and response in JSON Format
 
 
-User tweets Scope: Create a new scope that retrieves the tweets of a user
-Tweets and Replies: Create a new scope that retrieves the tweets and replies of that same user
-Followers Count: Create a new scope that retrieves the number of followers a user has
-Following Count: Create a new scope that retrieves the number of users a user follows
-Retweets counts: Create a new scope that retrieves the number of retweets
+Authentication Workaround:
 
-Quotes count: Create a new scope that retrieves the number of quotes
+To work around the user authentication do the following:
 
-Bookmarked tweets: Creates a new scope that retrieves the bookmarked tweets by a user
-
-Retweet method: Create a method that encapsulates the retweet logic accepting a user a parameter
-
-QuoteTweet: Create a method that encapsulates the retweet logic accepting a user an a text body as parameter
-
-Like a tweet: Create a method that encapsulates the like logic accepting a user
-
-Hashtag creation Method: Create a method that encapsulates the logic to scan a tweet body text and creates a new hashtag if it doesn’t exists and creates the new association between tweet and hashtag
-
-For submission
-
-    In your repository branch out of main after you have merge in the previous practice lab branch
-    name your branch m2-practice-lab-3
-    Make a commit every time you accomplish one of the requirements
-    Once you finish create a pull request from your new branch to main and submit the pull request as a link in this assignment
+    Use faker to create a temporally user based on the request IP address and save the id of the user and the timestamp of when it was last time seen to the session hash.
+    Different IP Addresses should result in different users
+    Every time you receive a request check for the last time that users signed in and if it greater that 30 minutes delete the session and return unauthorized

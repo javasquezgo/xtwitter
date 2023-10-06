@@ -1,5 +1,7 @@
 class Hashtag < ApplicationRecord
+    #Associations
     has_and_belongs_to_many :tweets
     
-    validates :name, presence :true
+    #Validations
+    validates :name, presence: true
 end

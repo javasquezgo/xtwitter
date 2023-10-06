@@ -1,4 +1,5 @@
 class Tweet < ApplicationRecord
+    #Associations
     belongs_to :user
     has_many :likes
     has_many :retweets
@@ -6,17 +7,20 @@ class Tweet < ApplicationRecord
     has_many :tags
     has_and_belongs_to_many :hashtags
     has_many :quotes
+    has_many :replies
 
-    validates :content, length: {maximum:255}
+    #Validations
+    validates :content,presence: true ,length: {minimum:1, maximum:255}
+    validates :user_id, presence: true
 
-    scope :retweets_from_user, ->(user_id) {
-        select('users.user_name, tweets.content, retweets.reply_text')
-          .joins('JOIN retweets ON users.id = retweets.user_id')
-          .joins('LEFT JOIN tweets ON tweets.id = retweets.tweet_id')
-          .where('users.id = ?', user_id)
-      }
+    #Queries
+    scope :user_personal_tweets, ->(user){
+     select(:content).joins(:user).where('tweets.user_id = ?', user)
+    }
 
-    scope :with_username_and_content_for_user, ->(user_id) {
-        joins(:user).where(users: { id: user_id }).select('users.user_name, tweets.content')
-      }
+    scope :retweet_and_tweets_from_user, ->(user){
+      select(:content).joins(:user, :retweets)
+      .where('users.id = ? ', 1)
+    }
+
 end

@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+      "tweet_id": { "type": "integer" },
+      "user_id": { "type": "integer" },
+      "created_at": { "type": "string", "format": "date-time" },
+      "updated_at": { "type": "string", "format": "date-time" }
+    },
+    "required": ["tweet_id", "user_id", "created_at", "updated_at"]
+  }
+  
